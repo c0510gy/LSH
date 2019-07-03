@@ -34,14 +34,14 @@ buckets = lsh.run_LSH(sig_mat, b, r)
 ## 2. C++
   아래서 부터 등장하는 `lli`는 `long long int` 타입을 뜻한다.
 
-### 1.1. Shingling
+### 2.1. Shingling
   다음과 같이 shingling을 하여 str문자열에서 k-shingles를 추출할 수 있다. 이때, k-shingles는 `vector<string>`으로 반환되며 중복되는 shingle은 카운팅 하지 않는다.
 ```cpp
 LSH* lsh = new LSH();
 vector<string> shingles = lsh->get_shingles(k, str);
 ```
 
-### 1.2. Min-Hashing
+### 2.2. Min-Hashing
   min-hashing은 h(x) = (ax + b) % p와 같은 polynomial hash function을 이용한다. 따라서 signature를 구하기 위해 {a, b}값으로 구성된 배열을 구성해야 한다. 해당 배열의 크기는 구할 signature의 크기와 동일하다. 다음과 같이 수행하면 signatures에는 signature를 담고 있는 `vector<lli>`가 저장된다.
 ```cpp
 vector<vector<lli>> rand_hashes;
@@ -50,7 +50,7 @@ for(int j = 0; j < b * r; j++)
 vector<lli> signature = lsh->get_signature(shingles, rand_hashes);
 ```
 
-### 1.3. Locality Sensitive Hashing
+### 2.3. Locality Sensitive Hashing
   LSH를 수행하기 위해 먼저 Signature Matrix를 구성해야 한다. files가 LSH를 수행할 파일의 내용을 담고 있는 배열이라면, 다음과 같이 Signature Matrix인 sig_mat을 구성한다.
 ```cpp
 vector<vector<lli>> sig_mat;
