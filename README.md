@@ -2,6 +2,8 @@
 LSH: Locality Sensitive Hashing 구현
 
 ## 1. Python
+  코드는 python 3.7을 기준으로 작성되었다.
+
 ### 1.1. Shingling
   다음과 같이 shingling을 하여 file_path파일의 k-shingles를 추출할 수 있다. 이때, k-shingles는 리스트로 반환되며 중복되는 shingle은 카운팅 하지 않는다.
 ```python
@@ -32,7 +34,7 @@ buckets = lsh.run_LSH(sig_mat, b, r)
 ```
 
 ## 2. C++
-  아래서 부터 등장하는 `lli`는 `long long int` 타입을 뜻한다.
+  코드는 C++14기준으로 작성되었다. 아래서 부터 등장하는 `lli`는 `long long int` 타입을 뜻한다.
 
 ### 2.1. Shingling
   다음과 같이 shingling을 하여 str문자열에서 k-shingles를 추출할 수 있다. 이때, k-shingles는 `vector<string>`으로 반환되며 중복되는 shingle은 카운팅 하지 않는다.
